@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../shared/material.module';
 import { TodosComponent } from './todos/todos.component';
+import { TodosRoutingModule } from './todos-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { todosReducer } from './store/reducers/todos.reducer';
 
 
 
@@ -9,7 +12,9 @@ import { TodosComponent } from './todos/todos.component';
   declarations: [TodosComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    TodosRoutingModule,
+    MaterialModule,
+    StoreModule.forFeature('todos', todosReducer)
   ]
 })
 export class TodosModule { }

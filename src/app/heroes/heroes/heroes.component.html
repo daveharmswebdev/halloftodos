@@ -1,1 +1,5 @@
-<p>heroes works!</p>
+<p>Here are the heroes!</p>
+
+<ul>
+  <li *ngFor="let hero of $Heroes | async">{{hero.heroName}}</li>
+</ul>

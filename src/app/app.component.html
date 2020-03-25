@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   <button mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Heroes</button>
-    <button mat-menu-item>Todos</button>
+    <button mat-menu-item routerLink="/home" >Home</button>
+    <button mat-menu-item routerLink="/heroes" >Heroes</button>
+    <button mat-menu-item routerLink="/todos" >Todos</button>
   </mat-menu>
 </mat-toolbar>
+<router-outlet></router-outlet>

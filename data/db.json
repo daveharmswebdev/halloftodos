@@ -1,0 +1,14 @@
+{
+  "todos": [
+    { "id": 1, "todo": "buy eggs", "doing": "dave", "complete": false, "dueDate": null },
+    { "id": 2, "todo": "rake lawn", "doing": "dave", "complete": false, "dueDate": null },
+    { "id": 3, "todo": "pick up parents from airport", "doing": "dave", "complete": false, "dueDate": null },
+    { "id": 4, "todo": "give speech", "doing": "dave", "complete": false, "dueDate": null }
+  ],
+  "heroes": [
+    { "id": 1, "heroName": "Wolverine", "power": "claws", "affiliation": "x-men", "beginDate": null },
+    { "id": 2, "heroName": "Batman", "power": "money", "affiliation": "justice league", "beginDate": null },
+    { "id": 3, "heroName": "Spiderman", "power": "does whatever a spider can", "affiliation": "avengers", "beginDate": null },
+    { "id": 4, "heroName": "Thor", "power": "god of thunder", "affiliation": "avengers", "beginDate": null }
+  ]
+}

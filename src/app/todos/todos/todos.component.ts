@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ITodosState } from '../store/reducers/todos.reducer';
+import { Store } from '@ngrx/store';
+import { FetchTodos } from '../store/actions/todos.actions';
 
 @Component({
   selector: 'app-todos',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private store: Store<ITodosState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.dispatch(new FetchTodos());
   }
 
 }
