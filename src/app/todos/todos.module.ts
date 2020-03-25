@@ -5,6 +5,9 @@ import { TodosComponent } from './todos/todos.component';
 import { TodosRoutingModule } from './todos-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { todosReducer } from './store/reducers/todos.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodosEffects } from './store/effects/todos.effects';
+import { TodosService } from './todos.service';
 
 
 
@@ -14,7 +17,9 @@ import { todosReducer } from './store/reducers/todos.reducer';
     CommonModule,
     TodosRoutingModule,
     MaterialModule,
-    StoreModule.forFeature('todos', todosReducer)
-  ]
+    StoreModule.forFeature('todos', todosReducer),
+    EffectsModule.forFeature([TodosEffects])
+  ],
+  providers: [TodosService]
 })
 export class TodosModule { }

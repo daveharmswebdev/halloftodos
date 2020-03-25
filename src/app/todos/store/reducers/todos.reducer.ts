@@ -4,15 +4,15 @@ import * as fromTodos from '../actions/todos.actions';
 export interface ITodosState {
   loading: boolean;
   loaded: boolean;
-  todos: ITodo;
+  todos: ITodo[];
   error: string;
 }
 
 export const intitialTodosState: ITodosState = {
   loading: false,
   loaded: false,
-  todos: undefined,
-  error: undefined,
+  todos: [],
+  error: '',
 };
 
 export function todosReducer(
@@ -21,11 +21,23 @@ export function todosReducer(
 ): ITodosState {
   switch (action.type) {
     case fromTodos.TodosActionTypes.FetchTodos:
-      return { ...state };
+      return {
+        ...state,
+        loading: true,
+      };
     case fromTodos.TodosActionTypes.FetchTodosSuccess:
-      return { ...state };
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        todos: action.payload.todos
+      };
     case fromTodos.TodosActionTypes.FetchTodosFailure:
-      return { ...state };
+      return {
+        ...state,
+        loaded: false,
+        loading: false
+      };
     default:
       return state;
   }

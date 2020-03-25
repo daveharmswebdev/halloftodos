@@ -1,6 +1,6 @@
 // will be ngrx 7 and before style
 import { Action } from '@ngrx/store';
-import { IHero } from 'src/app/heroes/models/Hero';
+import { ITodo } from '../../models/Todo';
 
 export enum TodosActionTypes {
   FetchTodos = '[TodosPage] Fetch Todos',
@@ -15,13 +15,13 @@ export class FetchTodos implements Action {
 export class FetchTodosSuccess implements Action {
   readonly type = TodosActionTypes.FetchTodosSuccess;
 
-  constructor(public payload: { heroes: IHero[] }) {}
+  constructor(public payload: { todos: ITodo[] }) {}
 }
 
 export class FetchTodosFailure implements Action {
   readonly type = TodosActionTypes.FetchTodosFailure;
 
-  constructor(public payload: { error: string }) {}
+  constructor(public payload: { error: any }) {}
 }
 
 export type TodosAction = FetchTodos | FetchTodosSuccess | FetchTodosFailure;

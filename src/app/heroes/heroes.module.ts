@@ -7,6 +7,8 @@ import { HeroesService } from './heroes.service';
 import { StoreModule } from '@ngrx/store';
 
 import * as fromHeroes from './store/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { HeroesEffects } from './store/effects/heroes.effects';
 
 @NgModule({
   declarations: [HeroesComponent],
@@ -14,7 +16,8 @@ import * as fromHeroes from './store/reducers';
     CommonModule,
     HeroesRoutingModule,
     MaterialModule,
-    StoreModule.forFeature(fromHeroes.heroesFeatureKey, fromHeroes.reducers)
+    StoreModule.forFeature(fromHeroes.heroesFeatureKey, fromHeroes.reducers),
+    EffectsModule.forFeature([HeroesEffects])
   ],
   providers: [HeroesService]
 })

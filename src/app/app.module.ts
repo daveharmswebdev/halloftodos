@@ -10,6 +10,7 @@ import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     MaterialModule,
     StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument({ name: 'Halloftodos app' })
+    StoreDevtoolsModule.instrument({ name: 'Halloftodos app' }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
