@@ -1,3 +1,7 @@
 <p>todos works!</p>
-
-<div *ngFor="let todo of todos$ | async">{{todo.id}} -- {{todo.todo}}</div>
+<div class="todo-container">
+  <app-todo-item
+    *ngFor="let todo of todos$ | async"
+    (deleteTodo)="deleteTodo($event)"
+    [todo]="todo" >{{todo.id}} -- {{todo.todo}}</app-todo-item>
+</div>

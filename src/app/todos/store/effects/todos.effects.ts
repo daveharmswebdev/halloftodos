@@ -9,6 +9,8 @@ import {
   TodosActionTypes,
   FetchTodosSuccess,
   FetchTodosFailure,
+  DeleteTodo,
+  DeleteTodoSuccess,
 } from '../actions/todos.actions';
 import { TodosService } from '../../todos.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
@@ -26,6 +28,17 @@ export class TodosEffects {
     switchMap(() => {
       return this.todosService.getTodos().pipe(
         map(todos => new FetchTodosSuccess({ todos })),
+        catchError(error => of(new FetchTodosFailure({ error })))
+      );
+    })
+  );
+
+  @Effect()
+  deleteTodos$: Observable<Action> = this.actions$.pipe(
+    ofType<DeleteTodo>(TodosActionTypes.DeleteTodo),
+    switchMap(({ payload: { id } }) => {
+      return this.todosService.deleteTodos(id).pipe(
+        map(() => new DeleteTodoSuccess({ id })),
         catchError(error => of(new FetchTodosFailure({ error })))
       );
     })

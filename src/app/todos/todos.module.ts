@@ -8,11 +8,12 @@ import { todosReducer } from './store/reducers/todos.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from './store/effects/todos.effects';
 import { TodosService } from './todos.service';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 
 
 @NgModule({
-  declarations: [TodosComponent],
+  declarations: [TodosComponent, TodoItemComponent],
   imports: [
     CommonModule,
     TodosRoutingModule,

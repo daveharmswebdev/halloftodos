@@ -28,6 +28,7 @@ export function todosReducer(
 ): ITodosState {
   switch (action.type) {
     case fromTodos.TodosActionTypes.FetchTodos:
+    case fromTodos.TodosActionTypes.DeleteTodo:
       return {
         ...state,
         loading: true,
@@ -38,6 +39,12 @@ export function todosReducer(
         loading: false,
         loaded: true,
         todos: todoAdapter.setAll(action.payload.todos, state.todos),
+      };
+    case fromTodos.TodosActionTypes.DeleteTodoSuccess:
+      return {
+        ...state,
+        loading: false,
+        todos: todoAdapter.removeOne(action.payload.id, state.todos)
       };
     case fromTodos.TodosActionTypes.FetchTodosFailure:
       return {

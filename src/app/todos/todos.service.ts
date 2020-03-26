@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from './models/Todo';
 import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { handleError } from '../shared/helpers/HandlerError';
 
 @Injectable()
 export class TodosService {
@@ -11,6 +13,15 @@ export class TodosService {
   ) {}
 
   getTodos() {
-    return this.http.get<ITodo[]>(this.baseUrl);
+    return this.http.get<ITodo[]>(this.baseUrl).pipe(
+      catchError(handleError)
+    );
+  }
+
+  deleteTodos(id: number) {
+    const url = this.baseUrl + '/' + id;
+    return this.http.delete(url).pipe(
+      catchError(handleError)
+    );
   }
 }

@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{todo.todo}} by {{todo.doing}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>{{todo.description}}</mat-card-content>
+  <mat-card-actions>
+    <span>{{todo.dueDate}}</span>
+    <button mat-button>{{ todo.complete ? 'Undo' : 'Complete'}}</button>
+    <button mat-button (click)="delete()">Delete</button>
+  </mat-card-actions>
+</mat-card>
