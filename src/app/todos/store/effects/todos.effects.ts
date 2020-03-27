@@ -11,9 +11,14 @@ import {
   FetchTodosFailure,
   DeleteTodo,
   DeleteTodoSuccess,
+  UpdateTodo,
+  UpdateTodoSuccess,
+  UpdateTodoFailure,
 } from '../actions/todos.actions';
 import { TodosService } from '../../todos.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
+import { Update } from '@ngrx/entity';
+import { ITodo } from '../../models/Todo';
 
 @Injectable()
 export class TodosEffects {
@@ -29,6 +34,21 @@ export class TodosEffects {
       return this.todosService.getTodos().pipe(
         map(todos => new FetchTodosSuccess({ todos })),
         catchError(error => of(new FetchTodosFailure({ error })))
+      );
+    })
+  );
+
+  @Effect()
+  updateTodo$: Observable<Action> = this.actions$.pipe(
+    ofType<UpdateTodo>(TodosActionTypes.UpdateTodo),
+    switchMap(action => {
+      const update: Update<ITodo> = {
+        id: action.payload.todo.id,
+        changes: action.payload.todo
+      };
+      return this.todosService.updateTodo(action.payload.todo).pipe(
+        map(() => new UpdateTodoSuccess({ update })),
+        catchError(error => of(new UpdateTodoFailure({ error })))
       );
     })
   );

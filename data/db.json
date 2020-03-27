@@ -5,8 +5,9 @@
       "todo": "buy eggs",
       "doing": "dave",
       "description": "T-bone ham hock tongue alcatra spare ribs tenderloin landjaeger pork belly meatloaf sirloin leberkas chuck jerky frankfurter pastrami. Pork rump leberkas beef ribs. Beef ribs prosciutto kevin biltong, t-bone landjaeger strip steak chislic salami. Cupim t-bone capicola ribeye brisket.",
-      "complete": false,
-      "dueDate": null
+      "complete": true,
+      "dueDate": null,
+      "completeDate": "2020-03-27T16:32:21.657Z"
     },
     {
       "id": 2,
@@ -14,23 +15,26 @@
       "doing": "dave",
       "description": "Picanha boudin meatloaf turducken ribeye ham hock, chuck flank doner tri-tip swine. T-bone brisket prosciutto buffalo tenderloin. Kielbasa kevin cow, shank meatball beef doner. Turkey picanha beef ribs, bresaola prosciutto shoulder buffalo cupim alcatra drumstick shank pork belly ham capicola. Jerky brisket shankle tail landjaeger. Boudin spare ribs salami t-bone, bresaola pastrami filet mignon pig ham. Pork belly flank shankle tongue cow strip steak picanha short ribs shoulder turkey rump burgdoggen pork frankfurter.",
       "complete": false,
-      "dueDate": null
+      "dueDate": null,
+      "completeDate": null
     },
     {
       "id": 3,
       "todo": "pick up parents from airport",
       "doing": "dave",
       "description": "Filet mignon buffalo kielbasa spare ribs pork chop boudin hamburger andouille porchetta ball tip meatloaf tenderloin tri-tip. Buffalo burgdoggen alcatra kevin brisket. Frankfurter cow spare ribs meatball. Pork loin sausage ham hock, tongue shoulder fatback tenderloin chislic kielbasa sirloin salami.",
-      "complete": false,
-      "dueDate": null
+      "complete": true,
+      "dueDate": null,
+      "completeDate": "2020-03-27T15:34:54.702Z"
     },
     {
       "id": 4,
       "todo": "give speech",
       "doing": "dave",
       "description": "Short ribs tail buffalo, andouille pancetta pork sirloin drumstick chicken short loin tongue. Capicola prosciutto tenderloin beef ribs turducken biltong ham hock cupim. Pastrami shoulder rump, pork kielbasa pork loin chicken turducken cupim chislic shankle tenderloin picanha beef. Jerky shoulder ham hock drumstick landjaeger buffalo chislic kielbasa meatloaf tenderloin rump pig short loin venison. Cupim beef pig, ground round tail prosciutto frankfurter t-bone short ribs swine biltong rump chuck.",
-      "complete": false,
-      "dueDate": null
+      "complete": true,
+      "dueDate": null,
+      "completeDate": "2020-03-27T15:34:57.837Z"
     }
   ],
   "heroes": [

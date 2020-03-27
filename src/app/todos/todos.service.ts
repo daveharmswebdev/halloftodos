@@ -18,6 +18,13 @@ export class TodosService {
     );
   }
 
+  updateTodo(todo: ITodo) {
+    const url = this.baseUrl + '/' + todo.id;
+    return this.http.put(url, todo).pipe(
+      catchError(handleError)
+    );
+  }
+
   deleteTodos(id: number) {
     const url = this.baseUrl + '/' + id;
     return this.http.delete(url).pipe(

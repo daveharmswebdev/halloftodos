@@ -5,4 +5,5 @@ export interface ITodo {
   description: string;
   complete: boolean;
   dueDate: Date;
+  completeDate: Date;
 }

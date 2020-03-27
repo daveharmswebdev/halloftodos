@@ -3,5 +3,6 @@
   <app-todo-item
     *ngFor="let todo of todos$ | async"
     (deleteTodo)="deleteTodo($event)"
+    (completeTodo)="completeTodo($event)"
     [todo]="todo" >{{todo.id}} -- {{todo.todo}}</app-todo-item>
 </div>
