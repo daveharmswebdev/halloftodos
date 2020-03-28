@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ITodo } from './models/Todo';
+import { ITodo } from '../models/Todo';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { handleError } from '../shared/helpers/HandlerError';
+import { handleError } from '../../shared/helpers/HandlerError';
 
 @Injectable()
 export class TodosService {

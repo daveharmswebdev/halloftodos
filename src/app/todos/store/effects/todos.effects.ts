@@ -15,7 +15,7 @@ import {
   UpdateTodoSuccess,
   UpdateTodoFailure,
 } from '../actions/todos.actions';
-import { TodosService } from '../../todos.service';
+import { TodosService } from '../../services/todos.service';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Update } from '@ngrx/entity';
 import { ITodo } from '../../models/Todo';

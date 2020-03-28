@@ -10,6 +10,8 @@ import { ITodo } from '../models/Todo';
 import { selectTodosAll } from '../store/selectors/todos.selector';
 import { AppState } from 'src/app/store/reducers';
 import { completedTodo } from '../helpers/completedTodo';
+import { TodosDialogService } from '../services/modals/todos-dialog.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todos',
@@ -18,8 +20,13 @@ import { completedTodo } from '../helpers/completedTodo';
 })
 export class TodosComponent implements OnInit {
   public todos$: Observable<ITodo[]>;
+  public editForm: FormGroup;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private dialog: TodosDialogService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.todos$ = this.store.pipe(select(selectTodosAll));
@@ -37,6 +44,19 @@ export class TodosComponent implements OnInit {
   }
 
   showCreateTodoModal() {
-    console.log('show');
+    this.editForm = this.fb.group({
+      todo: '',
+      doing: '',
+      description: '',
+      dueDate: null
+    });
+    this.dialog.editTodo(this.editForm).then((submit) => {
+      if (submit) {
+        console.log(this.editForm.value);
+      } else {
+        console.log('cancel');
+      }
+      this.editForm = null;
+    });
   }
 }
