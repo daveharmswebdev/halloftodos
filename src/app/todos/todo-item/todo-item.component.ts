@@ -8,7 +8,7 @@ import { ITodo } from '../models/Todo';
 })
 export class TodoItemComponent {
   @Input() todo: ITodo;
-  @Output() deleteTodo: EventEmitter<{id: number}> = new EventEmitter();
+  @Output() deleteTodo: EventEmitter<{id: string}> = new EventEmitter();
   @Output() completeTodo: EventEmitter<ITodo> = new EventEmitter();
 
   delete() {
