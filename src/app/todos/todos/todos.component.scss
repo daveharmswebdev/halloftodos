@@ -1,3 +1,18 @@
+@import '../../../assets/sass/colors.scss';
+
+.todos-toolbar {
+  background-color: $color-secondary-1-0;
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  div {
+    margin: 0 1rem;
+    button {
+      background-color: $color-primary-0;
+      color: white;
+    }
+  }
+}
 .todo-container {
   padding: 1rem;
 }

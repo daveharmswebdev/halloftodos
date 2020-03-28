@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { ITodo } from '../models/Todo';
 import { selectTodosAll } from '../store/selectors/todos.selector';
 import { AppState } from 'src/app/store/reducers';
+import { completedTodo } from '../helpers/completedTodo';
 
 @Component({
   selector: 'app-todos',
@@ -31,18 +32,11 @@ export class TodosComponent implements OnInit {
     this.store.dispatch(new DeleteTodo({ id }));
   }
 
-  completeTodo(completedTodo: ITodo) {
-    const todo: ITodo = !completedTodo.complete
-      ? {
-          ...completedTodo,
-          complete: true,
-          completeDate: new Date(),
-        }
-      : {
-          ...completedTodo,
-          complete: false,
-          completeDate: null,
-        };
-    this.store.dispatch(new UpdateTodo({ todo }));
+  completeTodo(todo: ITodo) {
+    this.store.dispatch(new UpdateTodo({ todo: completedTodo(todo)}));
+  }
+
+  showCreateTodoModal() {
+    console.log('show');
   }
 }

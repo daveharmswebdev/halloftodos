@@ -1,8 +1,13 @@
-<p>todos works!</p>
-<div class="todo-container">
-  <app-todo-item
-    *ngFor="let todo of todos$ | async"
-    (deleteTodo)="deleteTodo($event)"
-    (completeTodo)="completeTodo($event)"
-    [todo]="todo" >{{todo.id}} -- {{todo.todo}}</app-todo-item>
+<div *ngIf="todos$ | async as todos">
+  <mat-toolbar class="todos-toolbar">
+    <div>Todos: {{todos.length}}</div>
+    <div><button mat-fab (click)="showCreateTodoModal()">New</button></div>
+  </mat-toolbar>
+  <div class="todo-container">
+    <app-todo-item
+      *ngFor="let todo of todos"
+      (deleteTodo)="deleteTodo($event)"
+      (completeTodo)="completeTodo($event)"
+      [todo]="todo" >{{todo.id}} -- {{todo.todo}}</app-todo-item>
+  </div>
 </div>
