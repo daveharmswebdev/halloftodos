@@ -30,6 +30,7 @@ export function todosReducer(
     case fromTodos.TodosActionTypes.FetchTodos:
     case fromTodos.TodosActionTypes.DeleteTodo:
     case fromTodos.TodosActionTypes.UpdateTodo:
+    case fromTodos.TodosActionTypes.CreateTodo:
       return {
         ...state,
         loading: true,
@@ -47,17 +48,24 @@ export function todosReducer(
         ...state,
         loading: false,
         loaded: true,
-        todos: todoAdapter.updateOne(action.payload.update, state.todos)
+        todos: todoAdapter.updateOne(action.payload.update, state.todos),
       };
     case fromTodos.TodosActionTypes.DeleteTodoSuccess:
       return {
         ...state,
         loading: false,
-        todos: todoAdapter.removeOne(action.payload.id, state.todos)
+        todos: todoAdapter.removeOne(action.payload.id, state.todos),
+      };
+    case fromTodos.TodosActionTypes.CreateTodoSuccess:
+      return {
+        ...state,
+        loading: false,
+        todos: todoAdapter.addOne(action.payload.todo, state.todos)
       };
     case fromTodos.TodosActionTypes.DeleteTodoFailure:
     case fromTodos.TodosActionTypes.UpdateTodoFailure:
     case fromTodos.TodosActionTypes.FetchTodosFailure:
+    case fromTodos.TodosActionTypes.CreateTodoFailure:
       return {
         ...state,
         loaded: false,

@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>{{todo.description}}</mat-card-content>
   <mat-card-actions>
-    <span>{{todo.dueDate}}</span>
+    <span *ngIf="todo.dueDate">{{todo.dueDate | date}}</span>
     <button mat-button (click)="complete()">{{ todo.complete ? 'Undo' : 'Complete'}}</button>
     <button mat-button (click)="delete()">Delete</button>
   </mat-card-actions>

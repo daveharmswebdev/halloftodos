@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ITodo } from '../models/Todo';
+import { ITodo, ICreateTodo } from '../models/Todo';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../shared/helpers/HandlerError';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class TodosService {
@@ -25,9 +26,25 @@ export class TodosService {
     );
   }
 
-  deleteTodos(id: number) {
+  deleteTodo(id: number) {
     const url = this.baseUrl + '/' + id;
     return this.http.delete(url).pipe(
+      catchError(handleError)
+    );
+  }
+
+  createTodo(createTodo: ICreateTodo) {
+    const todo: ITodo = {
+      id: uuid(),
+      todo: createTodo.todo,
+      doing: createTodo.doing,
+      description: createTodo.description,
+      complete: false,
+      dueDate: createTodo.dueDate,
+      completeDate: null
+    };
+    return this.http.post(this.baseUrl, todo).pipe(
+      map(() => todo),
       catchError(handleError)
     );
   }

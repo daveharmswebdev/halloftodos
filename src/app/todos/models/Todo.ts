@@ -1,9 +1,16 @@
 export interface ITodo {
-  id: number;
+  id: string;
   todo: string;
   doing: string;
   description: string;
   complete: boolean;
   dueDate: Date;
   completeDate: Date;
+}
+
+export interface ICreateTodo {
+  todo: string;
+  doing: string;
+  description: string;
+  dueDate: Date;
 }

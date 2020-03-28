@@ -1,6 +1,6 @@
 // will be ngrx 7 and before style
 import { Action } from '@ngrx/store';
-import { ITodo } from '../../models/Todo';
+import { ITodo, ICreateTodo } from '../../models/Todo';
 import { Update } from '@ngrx/entity';
 
 export enum TodosActionTypes {
@@ -13,6 +13,9 @@ export enum TodosActionTypes {
   UpdateTodo = '[Todos Page] Update Todo',
   UpdateTodoSuccess = '[Todos Page] Update Todo Success',
   UpdateTodoFailure = '[Todos Page] Update Todo Failure',
+  CreateTodo = '[Todos Component] Create Todos',
+  CreateTodoSuccess = '[Todos Component] Create Todos Success',
+  CreateTodoFailure = '[Todos Component] Create Todos Failure',
 }
 
 export class FetchTodos implements Action {
@@ -67,6 +70,24 @@ export class UpdateTodoFailure implements Action {
   constructor(public payload: { error: any }) {}
 }
 
+export class CreateTodo implements Action {
+  readonly type = TodosActionTypes.CreateTodo;
+
+  constructor(public payload: { createTodo: ICreateTodo }) {}
+}
+
+export class CreateTodoSuccess implements Action {
+  readonly type = TodosActionTypes.CreateTodoSuccess;
+
+  constructor(public payload: { todo: ITodo }) {}
+}
+
+export class CreateTodoFailure implements Action {
+  readonly type = TodosActionTypes.CreateTodoFailure;
+
+  constructor(public payload: { error: any }) {}
+}
+
 export type TodosAction =
   | FetchTodos
   | FetchTodosSuccess
@@ -76,4 +97,7 @@ export type TodosAction =
   | DeleteTodoFailure
   | UpdateTodo
   | UpdateTodoSuccess
-  | UpdateTodoFailure;
+  | UpdateTodoFailure
+  | CreateTodo
+  | CreateTodoSuccess
+  | CreateTodoFailure;
