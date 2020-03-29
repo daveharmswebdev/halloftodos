@@ -1,4 +1,10 @@
 mat-card {
   width: 80%;
   margin: 1rem auto;
+  mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+  }
 }

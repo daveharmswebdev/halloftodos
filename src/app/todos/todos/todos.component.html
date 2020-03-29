@@ -8,6 +8,7 @@
       *ngFor="let todo of todos"
       (deleteTodo)="deleteTodo($event)"
       (completeTodo)="completeTodo($event)"
+      (editTodo)="editTodo($event)"
       [todo]="todo" >{{todo.id}} -- {{todo.todo}}</app-todo-item>
   </div>
 </div>

@@ -11,11 +11,20 @@
     <textarea matInput placeholder="Description" formControlName="description"></textarea>
   </mat-form-field>
 
+  <mat-checkbox *ngIf="data.edit" formControlName="complete">Complete</mat-checkbox>
+
   <mat-form-field>
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="dueDate">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate">
+    <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #dueDatePicker></mat-datepicker>
+  </mat-form-field>
+ 
+  <mat-form-field *ngIf="data.edit">
+    <mat-label>Complete Date</mat-label>
+    <input matInput [matDatepicker]="completeDatePicker" formControlName="completeDate">
+    <mat-datepicker-toggle matSuffix [for]="completeDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #completeDatePicker></mat-datepicker>
   </mat-form-field>
 
   <button mat-raised-button (click)="submit()">Submit</button>

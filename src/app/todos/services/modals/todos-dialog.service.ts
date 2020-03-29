@@ -7,11 +7,11 @@ import { FormGroup } from '@angular/forms';
 export class TodosDialogService {
   constructor(private dialog: MatDialog) {}
 
-  editTodo(todoForm: FormGroup) {
+  editTodo(todoForm: FormGroup, edit: boolean) {
     const dialogRef = this.dialog.open(EditTodoComponent, {
       width: '33%',
       height: '500px',
-      data: { todoForm }
+      data: { todoForm, edit }
     });
 
     return dialogRef.afterClosed().toPromise();

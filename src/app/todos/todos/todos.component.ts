@@ -5,6 +5,7 @@ import {
   DeleteTodo,
   UpdateTodo,
   CreateTodo,
+  UpdateTodoFailure,
 } from '../store/actions/todos.actions';
 import { Observable } from 'rxjs';
 import { ITodo, ICreateTodo } from '../models/Todo';
@@ -37,12 +38,29 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo({ id }) {
-    console.log('deleting id', id);
     this.store.dispatch(new DeleteTodo({ id }));
   }
 
   completeTodo(todo: ITodo) {
     this.store.dispatch(new UpdateTodo({ todo: completedTodo(todo) }));
+  }
+
+  editTodo(todo: ITodo) {
+    this.editForm = this.fb.group(todo);
+
+    const completeSubscription = this.editForm.get('complete').valueChanges.subscribe(complete => {
+      if (!complete) {
+        this.editForm.patchValue({ completeDate: null });
+      } else {
+        this.editForm.patchValue({ completeDate: new Date() });
+      }
+    });
+    this.dialog.editTodo(this.editForm, true).then(submit => {
+      console.log(this.editForm.value);
+      this.store.dispatch(new UpdateTodo({ todo: {...this.editForm.value}}));
+      completeSubscription.unsubscribe();
+      this.editForm = null;
+    });
   }
 
   showCreateTodoModal() {
@@ -52,18 +70,12 @@ export class TodosComponent implements OnInit {
       description: '',
       dueDate: null,
     });
-    this.dialog.editTodo(this.editForm).then(submit => {
+    this.dialog.editTodo(this.editForm, false).then(submit => {
       if (submit) {
-        const { todo, doing, description, dueDate } = this.editForm.value;
         const createTodo: ICreateTodo = {
-          todo,
-          doing,
-          description,
-          dueDate,
+          ...this.editForm.value
         };
         this.store.dispatch(new CreateTodo({ createTodo }));
-      } else {
-        console.log('cancel');
       }
       this.editForm = null;
     });

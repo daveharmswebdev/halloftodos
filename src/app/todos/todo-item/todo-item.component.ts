@@ -10,6 +10,7 @@ export class TodoItemComponent {
   @Input() todo: ITodo;
   @Output() deleteTodo: EventEmitter<{id: string}> = new EventEmitter();
   @Output() completeTodo: EventEmitter<ITodo> = new EventEmitter();
+  @Output() editTodo: EventEmitter<ITodo> = new EventEmitter();
 
   delete() {
     this.deleteTodo.emit({id: this.todo.id});
@@ -17,6 +18,10 @@ export class TodoItemComponent {
 
   complete() {
     this.completeTodo.emit(this.todo);
+  }
+
+  edit() {
+    this.editTodo.emit(this.todo);
   }
 
 }

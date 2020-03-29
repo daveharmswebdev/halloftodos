@@ -11,7 +11,7 @@ export class EditTodoComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditTodoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { todoForm: FormGroup }
+    @Inject(MAT_DIALOG_DATA) public data: { todoForm: FormGroup, edit: boolean }
   ) { }
 
   ngOnInit(): void {

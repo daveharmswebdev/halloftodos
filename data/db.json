@@ -2,12 +2,12 @@
   "todos": [
     {
       "id": "810d4e94-dd8c-4039-b008-849be5ae8bb4",
-      "todo": "buy eggs",
-      "doing": "dave",
-      "description": "T-bone ham hock tongue alcatra spare ribs tenderloin landjaeger pork belly meatloaf sirloin leberkas chuck jerky frankfurter pastrami. Pork rump leberkas beef ribs. Beef ribs prosciutto kevin biltong, t-bone landjaeger strip steak chislic salami. Cupim t-bone capicola ribeye brisket.",
-      "complete": true,
+      "todo": "Buy Organic Eggs from Whole Foods",
+      "doing": "Dave",
+      "description": "Test 123",
+      "complete": false,
       "dueDate": null,
-      "completeDate": "2020-03-27T16:56:43.886Z"
+      "completeDate": null
     },
     {
       "id": "72038873-4a70-455a-afaa-6ad787633ee3",
@@ -32,9 +32,9 @@
       "todo": "give speech",
       "doing": "dave",
       "description": "Short ribs tail buffalo, andouille pancetta pork sirloin drumstick chicken short loin tongue. Capicola prosciutto tenderloin beef ribs turducken biltong ham hock cupim. Pastrami shoulder rump, pork kielbasa pork loin chicken turducken cupim chislic shankle tenderloin picanha beef. Jerky shoulder ham hock drumstick landjaeger buffalo chislic kielbasa meatloaf tenderloin rump pig short loin venison. Cupim beef pig, ground round tail prosciutto frankfurter t-bone short ribs swine biltong rump chuck.",
-      "complete": true,
+      "complete": false,
       "dueDate": null,
-      "completeDate": "2020-03-27T15:34:57.837Z"
+      "completeDate": "2020-03-28T21:12:08.580Z"
     },
     {
       "id": "36a3277c-53c2-43a0-9ff6-f47aabf3936a",
@@ -43,7 +43,25 @@
       "description": "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf",
       "complete": false,
       "dueDate": "2020-03-28T05:00:00.000Z",
+      "completeDate": "2020-03-28T21:11:19.269Z"
+    },
+    {
+      "id": "4a089ae3-3617-4080-840c-90dce5cbf289",
+      "todo": "test",
+      "doing": "test",
+      "description": "test test test",
+      "complete": false,
+      "dueDate": "2020-03-28T05:00:00.000Z",
       "completeDate": null
+    },
+    {
+      "id": "82d71057-c75c-4067-aa0a-6596586abb23",
+      "todo": "TEST AGAIN",
+      "doing": "Dave",
+      "description": "test again but now the title has caps",
+      "complete": true,
+      "dueDate": "2020-03-29T05:00:00.000Z",
+      "completeDate": "2020-03-28T21:09:57.993Z"
     }
   ],
   "heroes": [
