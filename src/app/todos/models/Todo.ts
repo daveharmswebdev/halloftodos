@@ -6,11 +6,21 @@ export interface ITodo {
   complete: boolean;
   dueDate: Date;
   completeDate: Date;
+  notes: ITodoNote[];
 }
 
 export interface ICreateTodo {
   todo: string;
   doing: string;
   description: string;
+  complete: boolean;
   dueDate: Date;
+  completeDate: Date;
+}
+
+export interface ITodoNote {
+  id: string;
+  title: string;
+  details: string;
+  writtenBy: string;
 }

@@ -72,7 +72,7 @@ export class TodosEffects {
     ofType<CreateTodo>(TodosActionTypes.CreateTodo),
     switchMap(({ payload: { createTodo } }) => {
       return this.todosService.createTodo(createTodo).pipe(
-        map(todo => new CreateTodoSuccess({ todo })),
+        map((todo: ITodo) => new CreateTodoSuccess({ todo })),
         catchError(error => of(new CreateTodoFailure({ error })))
       );
     })
