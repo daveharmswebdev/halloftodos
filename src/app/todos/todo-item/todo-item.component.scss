@@ -1,3 +1,5 @@
+@import '../../../assets/sass/colors.scss';
+
 mat-card {
   width: 80%;
   margin: 1rem auto;
@@ -6,5 +8,15 @@ mat-card {
     justify-content: space-between;
     align-items: center;
     height: 5rem;
+    mat-card-title {
+      span.todo {
+        color: $color-secondary-2-0;
+        font-size: larger;
+      }
+      span.doing {
+        color: $color-secondary-1-3;
+        font-size: medium;
+      }
+    }
   }
 }

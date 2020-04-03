@@ -43,7 +43,6 @@ export function todosReducer(
         todos: todoAdapter.setAll(action.payload.todos, state.todos),
       };
     case fromTodos.TodosActionTypes.UpdateTodoSuccess:
-      console.log(action);
       return {
         ...state,
         loading: false,

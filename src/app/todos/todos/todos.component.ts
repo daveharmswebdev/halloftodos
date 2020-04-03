@@ -5,7 +5,6 @@ import {
   DeleteTodo,
   UpdateTodo,
   CreateTodo,
-  UpdateTodoFailure,
 } from '../store/actions/todos.actions';
 import { Observable } from 'rxjs';
 import { ITodo, ICreateTodo } from '../models/Todo';
@@ -13,8 +12,7 @@ import { selectTodosAll } from '../store/selectors/todos.selector';
 import { AppState } from 'src/app/store/reducers';
 import { completedTodo } from '../helpers/completedTodo';
 import { TodosDialogService } from '../services/modals/todos-dialog.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { todoAdapter } from '../store/reducers/todos.reducer';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todos',
@@ -56,11 +54,14 @@ export class TodosComponent implements OnInit {
       }
     });
     this.dialog.editTodo(this.editForm, true).then(submit => {
-      console.log(this.editForm.value);
       this.store.dispatch(new UpdateTodo({ todo: {...this.editForm.value}}));
       completeSubscription.unsubscribe();
       this.editForm = null;
     });
+  }
+
+  addDueDate(todo: ITodo) {
+    this.store.dispatch(new UpdateTodo({ todo }));
   }
 
   showCreateTodoModal() {

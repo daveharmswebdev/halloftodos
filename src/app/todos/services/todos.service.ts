@@ -3,7 +3,7 @@ import { ITodo, ICreateTodo } from '../models/Todo';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { handleError } from '../../shared/helpers/HandlerError';
-import { v4 as uuid } from 'uuid';
+import { todoAdapter } from '../store/reducers/todos.reducer';
 
 @Injectable()
 export class TodosService {
@@ -12,7 +12,13 @@ export class TodosService {
   constructor(private http: HttpClient) {}
 
   getTodos() {
-    return this.http.get<ITodo[]>(this.baseUrl).pipe(catchError(handleError));
+    return this.http.get<ITodo[]>(this.baseUrl).pipe(
+      map(todos => todos.map(todo => {
+        const { notes, ...rest } = todo;
+        return rest;
+      })),
+      catchError(handleError)
+    );
   }
 
   updateTodo(todo: ITodo) {

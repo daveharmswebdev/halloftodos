@@ -7,6 +7,7 @@ export interface ITodo {
   dueDate: Date;
   completeDate: Date;
   notes: ITodoNote[];
+  totalNotes: number;
 }
 
 export interface ICreateTodo {
